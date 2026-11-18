@@ -108,12 +108,29 @@ Muốn hỗ trợ thêm thư viện? Xem hướng dẫn viết adapter trong [DE
 
 ## 3. Cài đặt
 
-1. Mở Chrome (hoặc Edge, Brave, Cốc Cốc — bản Chromium 116 trở lên), vào `chrome://extensions`.
-2. Bật **Developer mode** (góc phải trên).
-3. Bấm **Load unpacked** → chọn thư mục `universal-canvas-finder`.
-4. Bấm icon 🧩 trên thanh công cụ → ghim **Universal Canvas Finder** cho tiện.
+Không cần cài Node.js hay chạy lệnh build — mọi thứ (kể cả bộ OCR) đã có sẵn trong repo.
 
-Cập nhật bản mới: chép đè thư mục, vào `chrome://extensions` bấm **⟳** trên extension, rồi tải lại trang.
+1. Tải mã nguồn về:
+   ```bash
+   git clone https://github.com/hoang99/Universal-canvas-finder-Extension.git
+   ```
+   (hoặc trên trang GitHub bấm **Code → Download ZIP** rồi giải nén).
+2. Mở Chrome (hoặc Edge, Brave, Cốc Cốc — bản Chromium 116 trở lên), vào `chrome://extensions`.
+3. Bật **Developer mode** (góc phải trên).
+4. Bấm **Load unpacked** → chọn thư mục `Universal-canvas-finder-Extension` vừa tải (thư mục chứa `manifest.json`).
+5. Bấm icon 🧩 trên thanh công cụ → ghim **Universal Canvas Finder** cho tiện.
+6. Tải lại (F5) các trang đang mở để extension hoạt động trên đó.
+
+**Cập nhật bản mới:**
+
+```bash
+git pull
+```
+
+Sau đó vào `chrome://extensions` bấm **⟳** trên extension, rồi tải lại trang.
+(Cài kiểu *Load unpacked* sẽ không tự cập nhật.)
+
+> **Lưu ý:** đừng xoá hay di chuyển thư mục sau khi đã Load unpacked — Chrome chạy extension trực tiếp từ thư mục đó.
 
 ---
 
