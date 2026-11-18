@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Universal Canvas Finder — trang demo</title>
+  <style>
+    body { font: 15px/1.5 system-ui, sans-serif; margin: 24px auto; max-width: 720px; color: #222; }
+    section { margin: 0 0 28px; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; }
+    h2 { font-size: 15px; margin: 0 0 8px; }
+    canvas, img, svg { display: block; border: 1px dashed #bbb; }
+  </style>
+  <!-- Thư viện của TRANG demo (không phải của extension) -->
+  <script src="https://cdn.jsdelivr.net/npm/konva@9.3.6/konva.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+</head>
+<body>
+  <h1>Trang demo</h1>
+  <p>Nhấn <b>Ctrl+Shift+F</b> rồi thử tìm: <i>12345</i>, <i>xin chao</i>, <i>Alpha</i>, <i>Bravo</i>, <i>Charlie</i>,
+     <i>Tháng Hai</i>, <i>Foxtrot</i>, <i>Golf</i>, <i>Juliet</i>, <i>Delta</i>. Ctrl+F của Chrome không tìm thấy các từ này.</p>
+  <div id="app"></div>
+  <script src="demo-content.js"></script>
+</body>
+</html>

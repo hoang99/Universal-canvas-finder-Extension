@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Universal Canvas Finder — OCR</title>
+</head>
+<body>
+  <!-- Offscreen document: nơi duy nhất tạo được Web Worker từ chrome-extension://.
+       Tesseract.js tự chạy phần nhận dạng trong Web Worker (lib/tesseract/worker.min.js),
+       nên trang web gốc không bao giờ bị đứng khi OCR. -->
+  <script src="lib/tesseract/tesseract.min.js"></script>
+  <script src="ocr-worker.js"></script>
+</body>
+</html>

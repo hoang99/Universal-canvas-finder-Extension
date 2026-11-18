@@ -1,0 +1,12 @@
+[
+  "gojs.js",
+  "fabric.js",
+  "konva.js",
+  "jointjs.js",
+  "mxgraph.js",
+  "chartjs.js",
+  "echarts.js",
+  "highcharts.js",
+  "pixi.js",
+  "d3.js"
+]

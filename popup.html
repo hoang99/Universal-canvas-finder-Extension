@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Universal Canvas Finder</title>
+  <style>
+    :root { --fg:#1d1f23; --muted:#6b7280; --line:#e5e7eb; --accent:#ff6a00; --bg:#fff; --chip:#f3f4f6; }
+    @media (prefers-color-scheme: dark) { :root { --fg:#e8eaed; --muted:#9aa0a6; --line:#3a3d42; --bg:#1f2125; --chip:#2b2e33; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; width: 320px; font: 13px/1.45 system-ui, "Segoe UI", Roboto, sans-serif; color: var(--fg); background: var(--bg); }
+    header { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    header img { width: 22px; height: 22px; }
+    header b { font-size: 14px; }
+    section { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+    h3 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+    label { display: flex; align-items: center; gap: 6px; padding: 2px 0; cursor: pointer; }
+    .langs { display: grid; grid-template-columns: 1fr 1fr; gap: 0 8px; }
+    select, input[type=number] { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; }
+    select { width: 100%; }
+    input[type=number] { width: 70px; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 2px 0; }
+    .hint { color: var(--muted); font-size: 11.5px; margin: 4px 0 0; }
+    button { font: inherit; border-radius: 6px; padding: 7px 12px; cursor: pointer; border: 1px solid var(--line); background: var(--chip); color: var(--fg); }
+    button.primary { background: var(--accent); border-color: var(--accent); color: #fff; width: 100%; font-weight: 600; }
+    footer { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; color: var(--muted); font-size: 11.5px; }
+    kbd { font: 11px ui-monospace, monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 4px; }
+    #msg { color: var(--accent); min-height: 1em; }
+  </style>
+</head>
+<body>
+  <header><img src="icons/icon48.png" alt=""><b>Universal Canvas Finder</b></header>
+
+  <section>
+    <button id="open" class="primary">Mở thanh tìm kiếm</button>
+    <p class="hint">Phím tắt: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> (đổi tại chrome://extensions/shortcuts)</p>
+    <p class="hint" id="msg"></p>
+  </section>
+
+  <section>
+    <h3>Chế độ quét</h3>
+    <select id="scanMode">
+      <option value="auto">Tự động (DOM → Adapter → OCR)</option>
+      <option value="dom">Chỉ tầng 1: DOM / SVG / thuộc tính</option>
+      <option value="adapter">Chỉ tầng 2: Adapter thư viện đồ hoạ</option>
+      <option value="ocr">Chỉ tầng 3: OCR</option>
+      <option value="all">Tất cả các tầng (không bỏ qua)</option>
+    </select>
+    <p class="hint">Tự động: phần tử nào đã có văn bản ở tầng nhanh hơn thì không OCR.</p>
+  </section>
+
+  <section>
+    <h3>Ngôn ngữ OCR</h3>
+    <div class="langs" id="langs">
+      <label><input type="checkbox" value="eng"> English</label>
+      <label><input type="checkbox" value="vie"> Tiếng Việt</label>
+      <label><input type="checkbox" value="jpn"> 日本語</label>
+      <label><input type="checkbox" value="kor"> 한국어</label>
+      <label><input type="checkbox" value="chi_sim"> 简体中文</label>
+    </div>
+    <p class="hint">Chọn ít ngôn ngữ thì OCR nhanh và chính xác hơn.</p>
+  </section>
+
+  <section>
+    <h3>Tuỳ chọn</h3>
+    <label><input type="checkbox" id="autoRescan"> Tự quét lại khi nội dung thay đổi</label>
+    <label><input type="checkbox" id="includeHtmlText"> Tìm cả văn bản HTML thường</label>
+    <div class="row"><span>Kích thước tối thiểu để OCR (px)</span><input type="number" id="minOcrSize" min="10" max="1000"></div>
+    <div class="row"><span>Số phần tử OCR tối đa / frame</span><input type="number" id="maxOcrTargets" min="1" max="500"></div>
+  </section>
+
+  <footer>
+    <span>Xử lý 100% cục bộ</span>
+    <button id="clearCache" title="Xoá kết quả OCR đã lưu">Xoá cache OCR</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

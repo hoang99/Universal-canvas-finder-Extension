@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Universal Canvas Finder — harness tự kiểm thử</title>
+  <style>
+    body { font: 15px/1.5 system-ui, sans-serif; margin: 24px auto; max-width: 720px; color: #222; }
+    section { margin: 0 0 28px; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; }
+    h2 { font-size: 15px; margin: 0 0 8px; }
+    canvas, img, svg { display: block; border: 1px dashed #bbb; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/konva@9.3.6/konva.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+</head>
+<body>
+  <h1>Harness (giả lập chrome.*)</h1>
+  <p>Bấm nút (tương đương Ctrl+Shift+F): <button id="go">Mở Finder</button></p>
+  <div id="app"></div>
+  <script src="demo-content.js"></script>
+  <script src="stub-chrome.js"></script>
+  <script src="../lib/tesseract/tesseract.min.js"></script>
+  <script src="../ocr-worker.js"></script>
+  <script src="../content.js"></script>
+  <script>
+    document.getElementById('go').onclick = () => window.__ucfOpen();
+  </script>
+</body>
+</html>
